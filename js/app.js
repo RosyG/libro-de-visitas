@@ -8,7 +8,6 @@ $('#b-send').click(showComment);
 //Función que detecta las letras que se van escribiendo.
 function keyupLetters() {
   var letter = $('#textarea').val();
-  console.log(letter);
   paintLetters(letter);//Pinta comentario en tiempo real.
 }
 
@@ -18,8 +17,7 @@ function paintLetters(texto) {
   console.log(center);
    $('#comment-real-time').empty();//Borra contenido para que no se sobre escriba y existan repeticiones.
   var $containerText = $('<div />',
-  {'class':'comment-to-publish',
-    'class': '"+center+"'
+  {'class':'comment-to-publish'
   });
   var textUs = document.createElement('label');
   textUs.innerHTML = texto;//Añadiendo texto que el usuario va tecleando.
