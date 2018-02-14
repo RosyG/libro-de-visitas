@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Libro de visitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title></title>
+  </head>
+  <body>
+    <h2 class="center">Libro de visitas</h2>
+
+    <section id="container-comments">
+      <h3 class="center">Comentarios pasados:</h3>
+      <div id="comments">
+
+      </div>
+    </section>
+
+    <nav class="center">
+      <div class="nav-wrapper">
+        <ul class="left hide-on-med-and-down">
+          <li><a >Large</a></li>
+          <li><a >Medium</a></li>
+          <li><a >Small</a></li>
+          <li><a >Color de texto</a></li>
+          <li><a >Color de fondo</a></li>
+          <li><a >Izquierda</a></li>
+          <li><a >Centrar</a></li>
+          <li><a >Derecha</a></li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <section id="add-comment">
+
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea" class="materialize-textarea"></textarea>
+              <label class="center" for="textarea1">Agrega tu comentario:</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+    <section id="containerText">
+      <h3 class="center">Así se ve tu comentario:</h3>
+
+      <div id="comment-real-time"></div>
+    </section>
+
+    <a id="b-send" class="waves-effect waves-light btn">SEND</a>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+
+
+  </body>
+</html>
