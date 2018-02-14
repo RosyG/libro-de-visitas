@@ -2,6 +2,7 @@
 $('#textarea').keyup(keyupLetters);
 var $commentToSend = $('#comment-real-time');
 $('#b-send').click(showComment);
+$('#large').click(large);
 
 
 
@@ -19,7 +20,10 @@ function paintLetters(texto) {
   var $containerText = $('<div />',
   {'class':'comment-to-publish'
   });
-  var textUs = document.createElement('label');
+  var textUs = document.createElement('label',
+  {
+    'id' : 'text'
+  });
   textUs.innerHTML = texto;//Añadiendo texto que el usuario va tecleando.
   $containerText.append(textUs);//Añadiendo texto al div que tendra el estilo y el texto que el usuario acaba de introducir.
   $('#comment-real-time').prepend($containerText);
@@ -37,4 +41,13 @@ function showComment() {
 //Función que limpia el campo de textarea.
 function cleanText () {
 $('#textarea').val(' ');//limpiando el campo del text área.
+}
+
+//Función que añade style en el texto.
+function large() {
+  var large = 'large';
+  var textComment = $('#text');
+  textComment.replace("__category__", large)
+
+
 }
