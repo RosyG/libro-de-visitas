@@ -5,6 +5,7 @@
     <title>Libro de visitas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/gif" href="assets/images/icon-meta.png" />
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
@@ -13,23 +14,51 @@
     <h2 class="center">Libro de visitas</h2>
 
     <section id="container-comments">
-      <h3 class="center">Comentarios pasados:</h3>
+      <h4>Comentarios pasados:</h4>
       <div id="comments">
 
       </div>
     </section>
 
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a class="color-text background" data-color = '#e20f0f'>Rojo</a></li>
+      <li><a class="color-text background" data-color = '#9b40bc'>Purpura</a></li>
+      <li><a class="color-text background" data-color = '#f25484'>Rosa</a></li>
+      <li><a class="color-text background" data-color = '#eff254'>Amarillo</a></li>
+      <li><a class="color-text background" data-color = 'blue'>Azul</a></li>
+      <li><a class="color-text background" data-color = 'green'>Verde</a></li>
+      <li><a class="color-text background" data-color = '#010a03'>Negro</a></li>
+      <li><a class="color-text background" data-color = '#eeeeee'>Blanco</a></li>
+      <li><a class="color-text background" data-color = 'magenta'>Magenta</a></li>
+    </ul>
+
+    <ul id="dropdown2" class="dropdown-content">
+      <li><a class="background" data-background = '#e20f0f' >Rojo</a></li>
+      <li><a class="background" data-background = '#9b40bc' >Purpura</a></li>
+      <li><a class="background" data-background = '#f25484' >Rosa</a></li>
+      <li><a class="background" data-background = '#eff254' >Amarillo</a></li>
+      <li><a class="background" data-background = 'blue' >Azul</a></li>
+      <li><a class="background" data-background = 'green' >Verde</a></li>
+      <li><a class="background" data-background = '#010a03'>Negro</a></li>
+      <li><a class="background" data-background = '#eeeeee'>Blanco</a></li>
+      <li><a class="background" data-background = 'magenta'>Magenta</a></li>
+    </ul>
+
     <nav class="center">
       <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-          <li><a >Large</a></li>
-          <li><a >Medium</a></li>
-          <li><a >Small</a></li>
-          <li><a >Color de texto</a></li>
-          <li><a >Color de fondo</a></li>
-          <li><a >Izquierda</a></li>
-          <li><a >Centrar</a></li>
-          <li><a >Derecha</a></li>
+          <li><a id="large" data-size = '6em' >Large</a></li>
+          <li><a id="medium" data-size = '4em'>Medium</a></li>
+          <li><a id="small" data-size = '2em'>Small</a></li>
+          <li><a class="dropdown-button" data-activates="dropdown1">Color de texto<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-button" data-activates="dropdown2">Color de fondo<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a id="left" data-aling = 'left'>Izquierda</a></li>
+          <li><a id="center" data-aling = 'center' >Centrar</a></li>
+          <li><a id="justify" data-aling = 'justify' >Justificado</a></li>
+          <li><a id="right" data-aling = 'right' >Derecha</a></li>
+
+
 
         </ul>
       </div>
