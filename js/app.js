@@ -1,7 +1,8 @@
 //Funcionalidad
 $('#textarea').keyup(keyupLetters);
 var $commentToSend = $('#comment-real-time');
-$('#b-send').click(showComment);
+$('#b-send').click(showComment);//Muestra comentario en el contenedor de comentarios pasados.
+$('#b-send').click(addCommentToObject);//Guarda el comentario en un objeto.
 $('#large').click(changeSize);
 $('#medium').click(changeSize);
 $('#small').click(changeSize);
@@ -12,7 +13,6 @@ $('#justify').click(changeAling);
 $('#right').click(changeAling);
 $('.color-text').click(changeColor);
 $('.background').click(changeBackGround);
-
 
 //Función que detecta las letras que se van escribiendo.
 function keyupLetters() {
@@ -38,8 +38,6 @@ function paintLetters(texto) {
 
 //Función que muetra los comentarios pasado
 function showComment() {
-
-  console.log('paso por aqui');
   var $sendComment = $('.comment-to-publish');
   $('#comments').prepend($sendComment);
   cleanText ();
@@ -61,7 +59,6 @@ function changeSize() {
 
 //Función que canbia el color del texto
 function changeColor() {
-  console.log('colo se ejecu');
   var colorText = this.dataset.color;//this es el elemento, .dataset.color obtiene el color definido en ese elemento con el nombre color (asignado por mí).
   $("div#comment-real-time > div.comment-to-publish > label").css({
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
@@ -80,12 +77,9 @@ function changeAling() {
 
 //Cambia el color del fondo
 function changeBackGround () {
-  console.log('bakc se ejecu');
   var backgroundColor = this.dataset.background;
-  console.log(backgroundColor);
   $("div#comment-real-time > div.comment-to-publish").css({
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     'background-color' : backgroundColor
     });
-
 }
