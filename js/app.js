@@ -2,7 +2,7 @@
 $('#textarea').keyup(keyupLetters);
 var $commentToSend = $('#comment-real-time');
 $('#b-send').click(showComment);//Muestra comentario en el contenedor de comentarios pasados.
-$('#b-send').click(addCommentToObject);//Guarda el comentario en un objeto.
+//$('#b-send').click(addCommentToObject);//Guarda el comentario en un objeto.
 $('#large').click(changeSize);
 $('#medium').click(changeSize);
 $('#small').click(changeSize);
@@ -18,26 +18,29 @@ $('.background').click(changeBackGround);
 function keyupLetters() {
   var letter = $('#textarea').val();
   paintLetters(letter);//Pinta comentario en tiempo real.
+
+
 }
 
 //Función que muestra el comentario en tiempo real.
 function paintLetters(texto) {
-  var center = 'left';
-  console.log(center);
-   $('#comment-real-time').empty();//Borra contenido para que no se sobre escriba y existan repeticiones.
+  $('#comment-real-time').empty();//Borra contenido para que no se sobre escriba y existan repeticiones.
   var $containerText = $('<div />',
   {'class':'comment-to-publish'
   });
-  var textUs = document.createElement('label', {
-    'id' : 'style-text'
-  });
+  var textUs = document.createElement('label');
+  textUs.className += "new-text";//Creando una clase en el texto.
   textUs.innerHTML = texto;//Añadiendo texto que el usuario va tecleando.
   $containerText.append(textUs);//Añadiendo texto al div que tendra el estilo y el texto que el usuario acaba de introducir.
   $('#comment-real-time').prepend($containerText);
+
+  addCommentToObject ();
 }
 
 //Función que muetra los comentarios pasado
 function showComment() {
+  $('#comments').empty();
+
   var $sendComment = $('.comment-to-publish');
   $('#comments').prepend($sendComment);
   cleanText ();
@@ -55,6 +58,7 @@ function changeSize() {
   $("div#comment-real-time > div.comment-to-publish > label").css({
     fontSize: dataSize
     });
+  addCommentToObject ();
 }
 
 //Función que canbia el color del texto
@@ -64,6 +68,8 @@ function changeColor() {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     color: colorText
     });
+
+  addCommentToObject ();
 }
 
 //Función que canbia la posición del texto
@@ -73,6 +79,9 @@ function changeAling() {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     'text-align' : position
     });
+
+  addCommentToObject ();
+
 }
 
 //Cambia el color del fondo
@@ -82,4 +91,6 @@ function changeBackGround () {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     'background-color' : backgroundColor
     });
+
+  addCommentToObject ();
 }
