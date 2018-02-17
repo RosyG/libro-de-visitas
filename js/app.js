@@ -2,7 +2,7 @@
 $('#textarea').keyup(keyupLetters);
 var $commentToSend = $('#comment-real-time');
 $('#b-send').click(showComment);//Muestra comentario en el contenedor de comentarios pasados.
-//$('#b-send').click(addCommentToObject);//Guarda el comentario en un objeto.
+//$('#b-send').click(Guarda el comentario en un objeto.
 $('#large').click(changeSize);
 $('#medium').click(changeSize);
 $('#small').click(changeSize);
@@ -34,13 +34,13 @@ function paintLetters(texto) {
   $containerText.append(textUs);//Añadiendo texto al div que tendra el estilo y el texto que el usuario acaba de introducir.
   $('#comment-real-time').prepend($containerText);
 
-  addCommentToObject ();
+
 }
 
 //Función que muetra los comentarios pasado
 function showComment() {
   $('#comments').empty();
-
+  addCommentToObject();
   var $sendComment = $('.comment-to-publish');
   $('#comments').prepend($sendComment);
   cleanText ();
@@ -58,7 +58,7 @@ function changeSize() {
   $("div#comment-real-time > div.comment-to-publish > label").css({
     fontSize: dataSize
     });
-  addCommentToObject ();
+
 }
 
 //Función que canbia el color del texto
@@ -69,7 +69,7 @@ function changeColor() {
     color: colorText
     });
 
-  addCommentToObject ();
+
 }
 
 //Función que canbia la posición del texto
@@ -80,7 +80,7 @@ function changeAling() {
     'text-align' : position
     });
 
-  addCommentToObject ();
+
 
 }
 
@@ -92,5 +92,5 @@ function changeBackGround () {
     'background-color' : backgroundColor
     });
 
-  addCommentToObject ();
+
 }
