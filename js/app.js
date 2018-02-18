@@ -1,6 +1,5 @@
 //Funcionalidad
 $('#textarea').keyup(keyupLetters);
-var $commentToSend = $('#comment-real-time');
 $('#b-send').click(showComment);//Muestra comentario en el contenedor de comentarios pasados.
 //$('#b-send').click(Guarda el comentario en un objeto.
 $('#large').click(changeSize);
@@ -41,9 +40,33 @@ function paintLetters(texto) {
 function showComment() {
   $('#comments').empty();
   addCommentToObject();
-  var $sendComment = $('.comment-to-publish');
+
+  allComments.forEach((comment, index) => {
+    var commentHtml = createComment(index);//iterando el arreglo para ir pintando cada comentario.
+    $('#comments').prepend(commentHtml);
+   });
+   cleanText ();//Limpiando text área
+   $('#comment-real-time').empty();//Limpiando el contenedor de los comentarios en tiempo real.
+  /*var $sendComment = $('.comment-to-publish');
   $('#comments').prepend($sendComment);
-  cleanText ();
+  */
+}
+
+//Función que crea un elemento por medio de DOM y le añade estoiñps al texto.
+function createComment(index) {
+  var containerText = document.createElement('div');
+  containerText.className += "past-comments";//Creando una clase en el texto.
+  var textUs = document.createElement('label');
+  var comment = allComments[index];
+  console.log(comment);
+  textUs.innerHTML = comment.newTextComment;
+  Object.assign(textUs.style, comment.styleText);
+  Object.assign(containerText.style, comment.newStyleContent);
+
+  //Añadiendo div que contiene el texto al contenedo de los coentarios pasados.
+  containerText.append(textUs);
+  $('#comments').prepend(containerText);
+  return containerText
 }
 
 //Función que limpia el campo de textarea.
