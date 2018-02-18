@@ -11,7 +11,7 @@
 
     textCommen = document.getElementsByClassName('new-text');
     containerText = document.getElementsByClassName('comment-to-publish');
-
+    console.log(textCommen);
     var text = textCommen[0].innerHTML;//Texto que el usuario ha introducido.
     Object.assign(newStyleText, textCommen[0].style);
     Object.assign(newStyleContent, containerText[0].style);

@@ -1,7 +1,7 @@
 //Funcionalidad
 $('#textarea').keyup(keyupLetters);
 $('#b-send').click(showComment);//Muestra comentario en el contenedor de comentarios pasados.
-//$('#b-send').click(Guarda el comentario en un objeto.
+//$('#b-send').click(addCommentToObject);//Guarda el comentario en un objeto.
 $('#large').click(changeSize);
 $('#medium').click(changeSize);
 $('#small').click(changeSize);
@@ -40,16 +40,12 @@ function paintLetters(texto) {
 function showComment() {
   $('#comments').empty();
   addCommentToObject();
-
   allComments.forEach((comment, index) => {
     var commentHtml = createComment(index);//iterando el arreglo para ir pintando cada comentario.
     $('#comments').prepend(commentHtml);
    });
    cleanText ();//Limpiando text área
    $('#comment-real-time').empty();//Limpiando el contenedor de los comentarios en tiempo real.
-  /*var $sendComment = $('.comment-to-publish');
-  $('#comments').prepend($sendComment);
-  */
 }
 
 //Función que crea un elemento por medio de DOM y le añade estoiñps al texto.
@@ -62,11 +58,50 @@ function createComment(index) {
   textUs.innerHTML = comment.newTextComment;
   Object.assign(textUs.style, comment.styleText);
   Object.assign(containerText.style, comment.newStyleContent);
-
+  //Crenado el botón de borrar.
+  var btnD = document.createElement("button");
+  btnD.innerHTML = "Borrar";//Añadiendo la leyenda borrar
+  btnD.onclick = deleteComment;//Llamando la función que borrará el comentario.
+  btnD.dataset.numberComment = index;
+  containerText.appendChild(btnD);//Añadiendo el comentario al div q contiene el comentario.
+  //Creando el botón de editar
+  var btnE = document.createElement("button");
+  btnE.innerText = "Editar";//Añadiendo la leyenda editar.
+  btnE.onclick = editComment;//Llamando la función que editara el comentario.
+  btnE.dataset.numberComment = index;
+  containerText.appendChild(btnE);//Añadiendo el comentario al div q contiene el comentario.
   //Añadiendo div que contiene el texto al contenedo de los coentarios pasados.
   containerText.append(textUs);
   $('#comments').prepend(containerText);
   return containerText
+}
+
+//Función que edita los comentarios pasados.
+function editComment() {
+  var newText = prompt("¿Cual es el nuevo texto del comentario?");
+  var numberComment = event.target.dataset.numberComment;
+  allComments[numberComment].newTextComment = newText;
+  //---------------------------------
+  $('#comments').empty();
+  allComments.forEach((comment, index) => {
+    var commentHtml = createComment(index);//iterando el arreglo para ir pintando cada comentario.
+    $('#comments').prepend(commentHtml);
+   });
+   //---------------------------------
+  console.log('edit');
+}
+
+//Función que borra los comentarios pasados.
+function deleteComment() {
+  var numberComment = event.target.dataset.numberComment;
+  allComments.splice(numberComment, 1);
+  //---------------------------------
+  $('#comments').empty();
+  allComments.forEach((comment, index) => {
+    var commentHtml = createComment(index);//iterando el arreglo para ir pintando cada comentario.
+    $('#comments').prepend(commentHtml);
+   });
+   //---------------------------------
 }
 
 //Función que limpia el campo de textarea.
@@ -81,7 +116,6 @@ function changeSize() {
   $("div#comment-real-time > div.comment-to-publish > label").css({
     fontSize: dataSize
     });
-
 }
 
 //Función que canbia el color del texto
@@ -91,8 +125,6 @@ function changeColor() {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     color: colorText
     });
-
-
 }
 
 //Función que canbia la posición del texto
@@ -102,9 +134,6 @@ function changeAling() {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     'text-align' : position
     });
-
-
-
 }
 
 //Cambia el color del fondo
@@ -114,6 +143,4 @@ function changeBackGround () {
     //Es bueno especificar la ubicación del texto en tiempo real para que no modifique al los textos anteriores, ya que coinciden en parte en estructura.
     'background-color' : backgroundColor
     });
-
-
 }
