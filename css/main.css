@@ -1,3 +1,11 @@
 nav, #b-send {
   background-color: #86e8c2;
 }
+
+.past-comments {
+  margin-bottom: 1em;
+}
+
+body {
+  font-family: GillSans;
+}
